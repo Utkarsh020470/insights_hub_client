@@ -18,10 +18,13 @@ const BlogsContainer = () => {
   };
 
   const updateAllBlogList = (_id) => {
-    const allBlogs = [...blogs].filter((blog) => {
-      if (blog._id !== _id);
+    const allBlogs = [...blogs];
+    const remainingBlogs = allBlogs.filter((blog) => {
+      if (blog._id !== _id) {
+        return blog;
+      }
     });
-    setBlogs(allBlogs);
+    setBlogs(remainingBlogs);
   };
 
   useEffect(() => {
